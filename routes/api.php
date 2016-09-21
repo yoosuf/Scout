@@ -20,12 +20,11 @@ use Illuminate\Http\Request;
 
 
 
-Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function ($api) {
-
+Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1', 'middleware' =>'guest'], function ($api) {
 
     $api->post('register', 'RegisterController@create');
     $api->post('login', 'AuthController@login');
-    $api->post('reset', 'PasswordController@save');
+    $api->post('reset', 'PasswordController@create');
 
 
 //    $api->group(['middleware' => 'auth:api'], function ($api) {
@@ -38,6 +37,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function ($api) {
 
         $api->get('events', 'EventsController@index');
         $api->post('events', 'EventsController@save');
+        $api->get('events/{id}', 'EventsController@show');
         $api->patch('events/{id}', 'EventsController@update');
         $api->delete('events/{id}', 'EventsController@destroy');
 

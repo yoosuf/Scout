@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PasswordController extends Controller
+class PasswordController extends ApiController
 {
-    public function forgot()
+    public function create()
     {
 
     }

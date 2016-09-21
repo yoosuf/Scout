@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Toin0u\Geocoder\Facade\Geocoder;
 
-class EventsController extends Controller
+class EventsController extends ApiController
 {
 
     public function index()
